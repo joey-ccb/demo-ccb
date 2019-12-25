@@ -1,0 +1,52 @@
+package org.ccb.demo.util.xml;
+
+/**
+ * Created by cuicb on 2017/1/24.
+ */
+
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@SuppressWarnings("serial")
+@XmlRootElement(name = "orgs")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class TestOrgs extends ArrayList<TestOrg> { // 泛化, 聚合
+
+    @XmlAttribute(name = "size")
+    private int size;
+    @XmlAttribute(name = "batch_number")
+    private Long batchNumber;
+    @XmlAttribute(name = "errmsg")
+    private String errmsg;
+
+    @XmlElement(name = "org")
+    public List<TestOrg> getOrgs() {
+        return this;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public Long getBatchNumber() {
+        return batchNumber;
+    }
+
+    public void setBatchNumber(Long batchNumber) {
+        this.batchNumber = batchNumber;
+    }
+
+    public String getErrmsg() {
+        return errmsg;
+    }
+
+    public void setErrmsg(String errmsg) {
+        this.errmsg = errmsg;
+    }
+
+}
